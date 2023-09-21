@@ -23,6 +23,11 @@
             <version>LATEST</version>
         </dependency>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.maven.surefire</groupId>
             <artifactId>maven-surefire-common</artifactId>
             <version>LATEST</version>
