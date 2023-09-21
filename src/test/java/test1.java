@@ -1,6 +1,4 @@
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.testng.annotations.Test;
@@ -21,10 +19,15 @@ public class test1 {
     private WebDriver driver;
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
 
-        driver.get("http://www.google.com/");
+        driver.get("https://www.orangehrm.com/");
         driver.manage().window().maximize();
+        Thread.sleep(3000);
+        WebElement resourseTab = driver.findElement(By.xpath("//li/a[text()='Resources']"));
+        Thread.sleep(3000);
+        resourseTab.click();
+        Thread.sleep(3000);
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
         try {
