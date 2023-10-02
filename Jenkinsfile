@@ -11,11 +11,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Set up the Maven tool (Make sure you've configured it in Jenkins)
-                tool name: 'Maven', type: 'ToolInstallation'
-
-                // Build the Maven project
-                sh 'mvn clean install' // Or any other Maven command you need
+                // Build a Java project (replace with your build tool)
+                sh 'mvn clean package' // Assuming you use Maven
             }
         }
 
