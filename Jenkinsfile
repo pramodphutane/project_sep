@@ -9,13 +9,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                // Build a Java project (replace with your build tool)
-               // sh 'mvn clean package' // Assuming you use Maven
-            }
-        }
-
         stage('Test') {
             steps {
                 // Run tests (if applicable)
