@@ -18,13 +18,13 @@ pipeline {
     }
 
     post {
-        success {
-            // Notify or perform actions on successful build
-            echo 'Build successful! Deploying...'
-        }
-        failure {
-            // Notify or perform actions on build failure
-            echo 'Build failed! Notify someone...'
-        }
+        always {
+                   emailext subject: 'Build Notification',
+                       body: 'This is the email body.',
+                       to: 'pramodphutane02@hmail.com',
+                       from: 'pramodphutane01@hmail.com',
+                       replyTo: 'pramodphutane01@hmail.com',
+                       mimeType: 'text/plain'
+               }
     }
 }
