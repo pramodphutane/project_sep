@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Run tests (if applicable)
-                sh 'mvn clean install' // Modify this based on your testing framework
+                sh 'mvn clean test' // Modify this based on your testing framework
             }
         }
     }
