@@ -4,50 +4,37 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Check out your source code from the repository
-                checkout scm
+                // Checkout the source code from your Git repository
+                git branch: 'main', url: 'https://github.com/pramodphutane/project_sep.git'
             }
         }
 
         stage('Build') {
             steps {
-                // Build your project using Maven, Gradle, or other build tools
-                sh 'mvn clean package'
+                // Set up the Maven tool (Make sure you've configured it in Jenkins)
+                tool name: 'Maven', type: 'ToolInstallation'
+
+                // Build the Maven project
+                sh 'mvn clean install' // Or any other Maven command you need
             }
         }
 
         stage('Test') {
             steps {
-                // Run your tests using Maven, Gradle, or other testing frameworks
-                sh 'mvn clean install'
+                // Run tests (if applicable)
+                sh 'mvn test' // Modify this based on your testing framework
             }
         }
     }
 
     post {
-        always {
-            // Archive test results
-            junit '**/target/surefire-reports/*.xml'
-        }
-
         success {
-            // Send an email notification on success with an email report
-            emailext subject: "Build Success - ${currentBuild.fullDisplayName}",
-                body: """<p>The build was successful.</p>
-                        <p>Here is the <a href="http://your-report-url.com">HTML report</a>.</p>""",
-                to: 'pramodphutane02@gmail.com',
-                mimeType: 'text/html',
-                attachmentsPattern: '**/target/*.html'  // Specify the pattern for attaching HTML reports
+            // Notify or perform actions on successful build
+            echo 'Build successful! Deploying...'
         }
-
         failure {
-            // Send an email notification on failure with an email report
-            emailext subject: "Build Failure - ${currentBuild.fullDisplayName}",
-                body: """<p>The build failed. Please check the Jenkins console output for details.</p>
-                        <p>Here is the <a href="http://your-report-url.com">HTML report</a>.</p>""",
-                to: 'pramodphutane02@gmail.com',
-                mimeType: 'text/html',
-                attachmentsPattern: '**/target/*.html'  // Specify the pattern for attaching HTML reports
+            // Notify or perform actions on build failure
+            echo 'Build failed! Notify someone...'
         }
     }
 }
