@@ -21,9 +21,9 @@ pipeline {
         always {
                    emailext subject: 'Build Notification',
                        body: 'This is the email body.',
-                       to: 'pramodphutane02@hmail.com',
-                       from: 'pramodphutane01@hmail.com',
-                       replyTo: 'pramodphutane01@hmail.com',
+                       to: 'pramodphutane02@gmail.com',
+                       from: 'pramodphutane01@gmail.com',
+                       replyTo: 'pramodphutane01gmail.com',
                        mimeType: 'text/plain'
                }
     }
