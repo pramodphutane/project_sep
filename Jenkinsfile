@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Build a Java project (replace with your build tool)
-                sh 'mvn clean package' // Assuming you use Maven
+               // sh 'mvn clean package' // Assuming you use Maven
             }
         }
 
         stage('Test') {
             steps {
                 // Run tests (if applicable)
-                sh 'mvn test' // Modify this based on your testing framework
+                sh 'mvn clean install' // Modify this based on your testing framework
             }
         }
     }
