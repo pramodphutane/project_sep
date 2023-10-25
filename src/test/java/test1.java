@@ -1,10 +1,9 @@
 import Utility.TakeScreenshot;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
 import base.LaunchURL;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
 import page_objects.HomePage;
 
 /**
@@ -22,6 +21,8 @@ public class test1 {
         launchUrl.getUrl();
         homePage.clickOnResourcesTab();
         takescreenshot.takePageScreenshot("resourceTab");
+        homePage.clickOnCompanyTab();
+        takescreenshot.takePageScreenshot("CompanyTab");
 
     }
 
